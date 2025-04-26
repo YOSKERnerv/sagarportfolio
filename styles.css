@@ -210,7 +210,14 @@ h3 {
     flex: 1;
     position: relative;
     z-index: 1;
+    max-width: 400px; /* set a maximum width */
+    width: 100%;
+    height: auto; /* let the height adjust naturally */
+    object-fit: cover;
+    border-radius: 10px; /* optional: make the corners smooth */
 }
+
+
 
 .hero-image img {
     max-width: 100%;
