@@ -183,41 +183,16 @@ h3 {
     margin-bottom: 2rem;
 }
 
-.social-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-links a {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-}
-
-.social-links a:hover {
-    background: #00b8ff;
-    transform: translateY(-3px);
-}
-
 .hero-image {
     flex: 1;
     position: relative;
     z-index: 1;
-    max-width: 400px; /* set a maximum width */
+    max-width: 400px;
     width: 100%;
-    height: auto; /* let the height adjust naturally */
+    height: auto;
     object-fit: cover;
-    border-radius: 10px; /* optional: make the corners smooth */
+    border-radius: 10px;
 }
-
-
 
 .hero-image img {
     max-width: 100%;
@@ -275,10 +250,6 @@ h3 {
     }
 
     .hero-buttons {
-        justify-content: center;
-    }
-
-    .social-links {
         justify-content: center;
     }
 
@@ -530,25 +501,158 @@ section::before {
 }
 
 .achievements {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.achievements li {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-bottom: 0.8rem;
-    padding-left: 1.5rem;
+    padding: 80px 0;
+    background: var(--section-gradient);
     position: relative;
 }
 
-.achievements li::before {
-    content: '▹';
-    color: var(--primary-color);
+.achievements::before {
+    content: '';
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0, 255, 157, 0.05) 0%, rgba(10, 10, 10, 0) 70%);
+    z-index: -1;
+}
+
+.achievements h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+}
+
+.achievements h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 3px;
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.achievement-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 184, 255, 0.15);
+    border-color: var(--primary-color);
+}
+
+.achievement-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.achievement-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.achievement-card:hover .achievement-image img {
+    transform: scale(1.05);
+}
+
+.achievement-content {
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(0, 184, 255, 0.05), rgba(0, 184, 255, 0.1));
+}
+
+.achievement-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    text-shadow: 0 0 10px rgba(0, 184, 255, 0.3);
+}
+
+.achievement-content p {
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.achievement-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+.achievement-links {
+    display: flex;
+    gap: 10px;
+}
+
+.achievement-links .btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    background: rgba(0, 184, 255, 0.1);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.achievement-links .btn:hover {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 184, 255, 0.3);
+}
+
+.achievement-links .btn i {
+    margin-right: 5px;
+    color: var(--primary-color);
+}
+
+.achievement-details .date {
+    color: var(--primary-color);
+    font-weight: 500;
+    text-shadow: 0 0 10px rgba(0, 184, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .achievements-grid {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+
+    .achievement-links {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .achievement-links .btn {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 .skills-overview {
